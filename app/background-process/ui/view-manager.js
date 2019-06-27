@@ -217,7 +217,17 @@ class View {
   // =
 
   loadURL (url) {
-    this.browserView.webContents.loadURL(url)
+    if (url === "eth://") {
+      console.log('eth')
+
+
+
+
+      this.browserView.webContents.loadFile('../../templates/erc20.html')
+      //this.browserView.webContents.loadURL(url)
+    } else {
+      this.browserView.webContents.loadURL(url)
+    }
   }
 
   activate () {

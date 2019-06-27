@@ -115,8 +115,21 @@ export function buildWindowMenu (opts = {}) {
         accelerator: 'CmdOrCtrl+O',
         click: function (item, win) {
           createWindowIfNone(win, (win) => {
-            dialog.showOpenDialog({ title: 'Open file...', properties: ['openFile', 'createDirectory'] }, files => {
+            dialog.showOpenDialog({ title: 'Open file ...', properties: ['openFile', 'createDirectory'] }, files => {
               if (files && files[0]) { viewManager.create(win, 'file://' + files[0], {setActive: true}) }
+              //if (files && files[0]) { viewManager.create(win, 'ens://' + files[0], {setActive: true}) }
+            })
+          })
+        }
+      },
+      {
+        label: 'Open dApp',
+        //accelerator: 'CmdOrCtrl+O',
+        click: function (item, win) {
+          createWindowIfNone(win, (win) => {
+            dialog.showOpenDialog({ title: 'Open dapp file ...', properties: ['openFile', 'createDirectory'] }, files => {
+              //if (files && files[0]) { viewManager.create(win, 'file://' + files[0], {setActive: true}) }
+              if (files && files[0]) { viewManager.create(win, 'dapp://' + files[0], {setActive: true}) }
             })
           })
         }
