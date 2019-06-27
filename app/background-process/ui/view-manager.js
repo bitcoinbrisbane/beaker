@@ -217,11 +217,8 @@ class View {
   // =
 
   loadURL (url) {
-    if (url === "eth://") {
+    if (url === 'eth://') {
       console.log('eth')
-
-
-
 
       this.browserView.webContents.loadFile('../../templates/erc20.html')
       //this.browserView.webContents.loadURL(url)
